@@ -1,0 +1,32 @@
+from tkinter import *
+root = Tk()
+def writevals():
+    with open("dance.txt","a") as f:
+        f.write(f"{nameVar.get()} {ageVar.get()} {heightVar.get()} {feesVar.get()} \n")
+
+    print("Form submitted")
+root.title("Dance form")
+heading = Label(text="Welcome to Dance Champions",font="comicsans 20 bold underline")
+name = Label(text="Name",font="comicsans 10 bold")
+age = Label(text="Age",font="comicsans 10 bold")
+height = Label(text="Height",font="comicsans 10 bold")
+fees = Label(text="Fees",font="comicsans 10 bold") # Fees paid by customer
+nameVar = StringVar()
+ageVar = IntVar()
+heightVar = StringVar()
+feesVar = IntVar()
+nameEntry = Entry(textvariable=nameVar)
+ageEntry = Entry(textvariable=ageVar)
+heightEntry = Entry(textvariable=heightVar)
+feesEntry = Entry(textvariable=feesVar)
+heading.grid(column=5)
+name.grid()
+age.grid()
+height.grid()
+fees.grid()
+nameEntry.grid(row=1,column=1)
+ageEntry.grid(row=2,column=1)
+heightEntry.grid(row=3,column=1)
+feesEntry.grid(row=4,column=1)
+Button(text="Submit",font="comicsans 10 bold",bg="green",fg="white",command=writevals).grid()
+root.mainloop()
